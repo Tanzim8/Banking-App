@@ -22,7 +22,6 @@ A simple Java-based banking application that allows users to manage bank account
 
 - Java JDK 8 or higher installed
 - IntelliJ IDEA (or any Java IDE)
-- Git (optional, but recommended)
 
 ### Run Instructions
 
