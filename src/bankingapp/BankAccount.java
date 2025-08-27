@@ -45,7 +45,7 @@ public class BankAccount {
            throw new IllegalArgumentException("Amount must be greater than 0");
        }
        balance += amount;
-       transactions.add("DEPOSIT", amount, accountNumber, null);
+       transactions.add(new Transaction("DEPOSIT", amount, accountNumber, null));
     }
 
     /**
@@ -78,10 +78,10 @@ public class BankAccount {
             throw new IllegalArgumentException("Target account cant be null!");
         }
         if(amount <= 0){
-            throw new IllegalArgumentException("Transfer amount must be positive!")
+            throw new IllegalArgumentException("Transfer amount must be positive!");
         }
         if(amount>balance){
-            throw new IllegalArgumentException("Insufficient funds for transfer.")
+            throw new IllegalArgumentException("Insufficient funds for transfer.");
         }
 
         //withdraw from current account
@@ -91,7 +91,7 @@ public class BankAccount {
 
         //deposit to new account
         toAccount.balance += amount;
-        toAccount.transactions.add(new Transaction("TRANSFER_IN", amount, accountNumber, toAccount.getAccountNumber()))
+        toAccount.transactions.add(new Transaction("TRANSFER_IN", amount, accountNumber, toAccount.getAccountNumber()));
     }
 
     /**
