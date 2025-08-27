@@ -47,9 +47,11 @@ public class Bank {
     }
     /**
      * Returns the list of all accounts
-     * @retun An ArrayList of BankAccount objects.
+     * @return An ArrayList of BankAccount objects.
      */
     public ArrayList<BankAccount> getAllAccounts(){
         return accounts;
     }
+
+    public void printAllAcc
 }
