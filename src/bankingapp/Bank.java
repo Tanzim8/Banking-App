@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public class Bank {
     private ArrayList<BankAccount> accounts;
+    private ArrayList<Customer> customers;
 
     //constructor
     public Bank() {
         accounts = new ArrayList<>();
+        customers = new ArrayList<>();
     }
 
     /**
@@ -53,5 +55,52 @@ public class Bank {
         return accounts;
     }
 
-    public void printAllAcc
+    public void printAllAccounts(){
+        if(accounts.isEmpty()){
+            System.out.println("No accounts in the Bank.");
+            return;
+        }
+        for(BankAccount account : accounts){
+            System.out.println(account);
+        }
+    }
+
+    // -------------------------
+    // Customer management
+    // -------------------------
+    public void addCustomer(Customer customer){
+        customers.add(customer);
+    }
+
+    public Customer findCustomer(String customerId){
+        for(Customer customer : customers){
+            if(customer.getCustomerId().equals(customerId)){
+                return customer;
+            }
+        }
+        return null;
+    }
+
+    public boolean removeCustomer(String customerId){
+        Customer toRemove = findCustomer(customerId);
+        if(toRemove != null){
+            customers.remove(toRemove);
+            return true;
+        }
+        return false;
+    }
+
+    public ArrayList<Customer> getAllCustomers() {
+        return customers;
+    }
+
+    public void printAllCustomers() {
+        if (customers.isEmpty()) {
+            System.out.println("No customers in the bank.");
+            return;
+        }
+        for (Customer customer : customers) {
+            System.out.println(customer);
+        }
+    }
 }
